@@ -26,26 +26,27 @@ public class CsgoCaseOpener {
         PrintWriter fileOut = new PrintWriter(new FileWriter(
       "opened", true));
         
-        
+        //welcome the user
         System.out.println("Welcome to a CSGO Case Opening Simulator!");
         System.out.println("Rarity from cases goes as follows: \n"
                 + "(*) - Common \n"
                 + "(**) - Rare \n"
                 + "(*!*) - Legendary!");
-       
+       try{
         Scanner input = new Scanner(System.in);
         System.out.println("---------------------------------");
         //get number of cases to open
         System.out.println("How many cases would you like to open?:");
         nOCases = input.nextInt();
         System.out.println("Current avalible cases to open: ");
-        System.out.println("1.Bravo -- 2.Vanguard -- 3.Phoenix -- 4.Clutch -- 5.Bloodhound");
        
         while(nOCases > 0){
              
         System.out.println("-----------------------------------------------------------");
-        System.out.println("Please pick " + nOCases + " cases!");
+        System.out.println("1.Bravo -- 2.Vanguard -- 3.Phoenix -- 4.Clutch -- 5.Bloodhound");
+        System.out.println("Pick a case. You have " + nOCases + " cases left!");
         casePick = input.nextInt();
+        //call the case that was picked to pick a random weapon
            if(casePick == 1){
                System.out.println("You opened: ");
                Case case1 = new Case();
@@ -93,6 +94,7 @@ public class CsgoCaseOpener {
                 
            }else{
                System.out.println("Please pick a case between numbers 1 - 5!");
+               nOCases++;
     }          
            //subtract 1 from remaining cases
            nOCases--;
@@ -111,4 +113,13 @@ public class CsgoCaseOpener {
             System.out.println("OK. Goodbye!");
         }
      }
+       //catch all of the possible errors
+    catch(NumberFormatException x){
+        System.out.println("Please enter an integer number!");
+        System.out.println(x);
+    }catch(InputMismatchException y){
+           System.out.println("Please enter the correct input type!");
+           System.out.println(y);
+    }
   }
+}

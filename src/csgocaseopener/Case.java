@@ -9,11 +9,12 @@ package csgocaseopener;
  * @author lewhi7273
  */
 public class Case {
-    private String Weapon;
     private int picked;
     //Define all cases
     public String Bravo(){
+        //possible weapons in the case
         String possible[] = {"(*)Mac-10 Whitefish", "(*!*)Galil Chatterbox","(*)Mag-7 Heat","(*)XM1014 Black-Tie","(**)AK-47 Elite Build"};
+        //pick a random weapon from the case, and if it is the legendary, excite the user
         picked = (int)(possible.length* Math.random());
         if(picked == 1){
             return ("WOOOOW!!! YOU GOT A LEGENDARY!!" + possible[picked]);
